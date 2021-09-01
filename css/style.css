@@ -37,6 +37,7 @@ header h1 span {
     max-width: 30%;
     width: 100%;
     padding: 10px 15px;
+    background-color: #f9f9f9;
 }
 .search-col button {
     margin-left: -5px;
