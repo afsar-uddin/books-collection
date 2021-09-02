@@ -19,36 +19,40 @@ const searchBook = async () => {
 const displaySearchResults = booksInfo => {
     const searchResults = document.getElementById('search-results');
     const searchResultsCount = [];
-    searchResults.textContent = ''
+    searchResults.textContent = '';
 
-
-    // console.log(newOne.length)
-    booksInfo.forEach(bookInfo => {
+    booksInfo?.forEach(bookInfo => {
         const div = document.createElement('div');
         div.classList.add('single-book');
 
         div.innerHTML = `
-            <h3>${bookInfo.title}</h3>
-            <p>${bookInfo.author_name}</p>
-            <p>${bookInfo.first_publish_year}</p>
+            <div onload=coverPhotos(${bookInfo.cover_i})>
+                <h3>${bookInfo.title}</h3>
+                <p>${bookInfo.author_name ? bookInfo.author_name : ''}</p>
+                <p>${bookInfo.first_publish_year ? bookInfo.first_publish_year : ''}</p>
+            </div>
             `;
-
-
         searchResults.appendChild(div);
 
         // search results push to declared empty array
         searchResultsCount.push(bookInfo)
-        console.log(bookInfo)
     });
 
-    // display search results
-    const searchResultsQuantity = document.getElementById('searchResultsQuantity');
+    const coverPhotos = async cover_i => {
+        const url = `https://covers.openlibrary.org/b/id/${cover_i}-L.jpg`
+        const res = await fetch(url);
+        const data = await res.json();
+        console.log(res)
+    }
+    coverPhotos();
 
+    // display search results quantity
+    const searchResultsQuantity = document.getElementById('searchResultsQuantity');
     const searchresultsLength = searchResultsCount.length;
     const h3 = document.createElement('h3');
     searchResultsQuantity.textContent = '';
-    if (searchresultsLength === 0) {
 
+    if (searchresultsLength === 0) {
         h3.innerText = 'no results found';
     } else {
         h3.innerText = searchResultsCount.length + ' results found';
