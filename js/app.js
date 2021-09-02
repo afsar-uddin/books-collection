@@ -1,7 +1,13 @@
+// toggle pre-loader 
+const togglePreLoader = style => {
+    document.getElementById('pre-loader').style.display = style;
+}
+
 // data fetch
 const searchBook = async () => {
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value;
+    togglePreLoader('block');
 
     searchField.value = '';
 
@@ -26,25 +32,17 @@ const displaySearchResults = booksInfo => {
         div.classList.add('single-book');
 
         div.innerHTML = `
-            
-                <img  src="https://covers.openlibrary.org/b/id/${bookInfo.cover_i}-L.jpg" />
-                <h3>${bookInfo.title}</h3>
-                <p>${bookInfo.author_name ? bookInfo.author_name : ''}</p>
-                <p>${bookInfo.first_publish_year ? bookInfo.first_publish_year : ''}</p>
+            <img  src="https://covers.openlibrary.org/b/id/${bookInfo.cover_i ? bookInfo.cover_i : '240727'}-M.jpg" />
+            <h3>${bookInfo.title}</h3>
+            <p>${bookInfo.author_name ? bookInfo.author_name : ''}</p>
+            <p>${bookInfo.first_publish_year ? bookInfo.first_publish_year : ''}</p>
             `;
         searchResults.appendChild(div);
 
         // search results push to declared empty array
-        searchResultsCount.push(bookInfo)
+        searchResultsCount.push(bookInfo);
+        togglePreLoader('none');
     });
-
-    // const coverPhotos = async cover_i => {
-    //     const url = `https://covers.openlibrary.org/b/id/${cover_i}-L.jpg`
-    //     const res = await fetch(url);
-    //     const data = await res.json();
-    //     console.log(res)
-    // }
-
 
     // display search results quantity
     const searchResultsQuantity = document.getElementById('searchResultsQuantity');
@@ -54,6 +52,7 @@ const displaySearchResults = booksInfo => {
 
     if (searchresultsLength === 0) {
         h3.innerText = 'no results found';
+        togglePreLoader('none');
     } else {
         h3.innerText = searchResultsCount.length + ' results found';
     }

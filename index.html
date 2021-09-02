@@ -11,27 +11,35 @@
 </head>
 
 <body>
-    <!-- main -->
     <!-- header -->
     <header>
         <h1><span>&#128214;
             </span> Search your favourite books <span>&#128214;
             </span></h1>
     </header>
+    <!-- main -->
+    <main>
+        <!-- search field -->
+        <section>
+            <div class="search-col">
+                <input type="text" id="search-field">
+                <button onclick="searchBook()" id="search-btn">Search</button>
+            </div>
+        </section>
 
-    <!-- search field -->
-    <section>
-        <div class="search-col">
-            <input type="text" id="search-field">
-            <button onclick="searchBook()" id="search-btn">Search</button>
-        </div>
-    </section>
-
-    <!-- search results -->
-    <section>
-        <div id="searchResultsQuantity"></div>
-        <div id="search-results"></div>
-    </section>
+        <!-- search results -->
+        <section>
+            <div id="searchResultsQuantity"></div>
+            <div id="search-results"></div>
+            <div id="pre-loader">
+                <div class="pre-load">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </section>
+    </main>
     <!-- main javascript -->
     <script src="js/app.js"></script>
 </body>
