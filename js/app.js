@@ -18,7 +18,7 @@ const searchBook = async () => {
     searchField.value = '';
 
     try {
-        const url = `http://openlibrary.org/search.json?q=${searchText}`;
+        const url = `https://openlibrary.org/search.json?q=${searchText}`;
         const res = await fetch(url);
         const data = await res.json();
         displaySearchResults(data.docs)
@@ -40,9 +40,9 @@ const displaySearchResults = booksInfo => {
         div.innerHTML = `
             <img  src="https://covers.openlibrary.org/b/id/${bookInfo.cover_i ? bookInfo.cover_i : '240727'}-M.jpg" />
             <h3>${bookInfo.title}</h3>
-            <p><strong>Author:</strong> ${bookInfo.author_name ? bookInfo.author_name : ''}</p>
-            <p><strong>Publisher:</strong> ${bookInfo.publisher ? bookInfo.publisher : ''}</p>
-            <p><strong>First Publish</strong> ${bookInfo.first_publish_year ? bookInfo.first_publish_year : ''}</p>
+            <p>${bookInfo.author_name ? bookInfo.author_name : ''}</p>
+            <p>${bookInfo.publisher ? bookInfo.publisher : ''}</p>
+            <p>${bookInfo.first_publish_year ? bookInfo.first_publish_year : ''}</p>
             `;
         searchResults.appendChild(div);
 

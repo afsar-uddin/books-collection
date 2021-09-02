@@ -206,4 +206,13 @@ header h1 span {
     #search-results {
         grid-template-columns: repeat( auto-fit, minmax(100%, 1fr) );
     }
+    #pre-loader {
+        width: 100%;
+        height: 55%;
+        background-color: skyblue;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        display: none;
+    }
 }
