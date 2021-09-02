@@ -26,11 +26,11 @@ const displaySearchResults = booksInfo => {
         div.classList.add('single-book');
 
         div.innerHTML = `
-            <div onload=coverPhotos(${bookInfo.cover_i})>
+            
+                <img  src="https://covers.openlibrary.org/b/id/${bookInfo.cover_i}-L.jpg" />
                 <h3>${bookInfo.title}</h3>
                 <p>${bookInfo.author_name ? bookInfo.author_name : ''}</p>
                 <p>${bookInfo.first_publish_year ? bookInfo.first_publish_year : ''}</p>
-            </div>
             `;
         searchResults.appendChild(div);
 
@@ -38,13 +38,13 @@ const displaySearchResults = booksInfo => {
         searchResultsCount.push(bookInfo)
     });
 
-    const coverPhotos = async cover_i => {
-        const url = `https://covers.openlibrary.org/b/id/${cover_i}-L.jpg`
-        const res = await fetch(url);
-        const data = await res.json();
-        console.log(res)
-    }
-    coverPhotos();
+    // const coverPhotos = async cover_i => {
+    //     const url = `https://covers.openlibrary.org/b/id/${cover_i}-L.jpg`
+    //     const res = await fetch(url);
+    //     const data = await res.json();
+    //     console.log(res)
+    // }
+
 
     // display search results quantity
     const searchResultsQuantity = document.getElementById('searchResultsQuantity');
