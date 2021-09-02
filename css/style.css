@@ -85,6 +85,7 @@ header h1 span {
 }
 .single-book img {
     width: 100%;
+    margin-bottom: 15px;
 }
 .single-book h3, .single-book p {
     margin-bottom: 10px;
@@ -172,5 +173,36 @@ header h1 span {
 
     100% {
         transform: translate(24px, 0);
+    }
+}
+/* Resonsive */
+@media screen and (max-width: 1000px) {
+    #search-results {
+        grid-template-columns: repeat( auto-fit, minmax(40%, 1fr) );
+    }
+}
+@media screen and (max-width: 480px) {
+    header h1 {
+        font-size: 18px;
+    }
+    header h1 span {
+        font-size: 14px;
+    }
+    header h1 span {
+        font-size: 14px;
+    }
+    .search-col input {
+        max-width: 85%;
+        width: 100%;
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 30px;
+    }
+    #searchResultsQuantity h3 {
+        padding: 15px;
+        font-size: 20px;
+    }
+    #search-results {
+        grid-template-columns: repeat( auto-fit, minmax(100%, 1fr) );
     }
 }
