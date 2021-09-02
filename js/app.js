@@ -2,12 +2,17 @@
 const togglePreLoader = style => {
     document.getElementById('pre-loader').style.display = style;
 }
+// toggle for search reslts
+const toggleSearchResults = showHide => {
+    document.getElementById('search-results').style.display = showHide;
+}
 
 // data fetch
 const searchBook = async () => {
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value;
     togglePreLoader('block');
+    toggleSearchResults('none');
 
     searchField.value = '';
 
@@ -42,6 +47,7 @@ const displaySearchResults = booksInfo => {
         // search results push to declared empty array
         searchResultsCount.push(bookInfo);
         togglePreLoader('none');
+        toggleSearchResults('grid');
     });
 
     // display search results quantity
@@ -56,11 +62,5 @@ const displaySearchResults = booksInfo => {
     } else {
         h3.innerText = searchResultsCount.length + ' results found';
     }
-    searchResultsQuantity.appendChild(h3)
-
-
-    // console.log(searchResultsCount)
-
-
-    // console.log(booksInfo)
+    searchResultsQuantity.appendChild(h3);
 }

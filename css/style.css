@@ -85,6 +85,13 @@ header h1 span {
 .single-book img {
     width: 100%;
 }
+.single-book h3, .single-book p {
+    margin-bottom: 10px;
+}
+.single-book p:last-child {
+    margin-bottom: 0;
+}
+
 /* pre loader */
 #pre-loader {
     width: 100%;
@@ -102,8 +109,8 @@ header h1 span {
     height: 80px;
     position: fixed;
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    top: 75%;
+    transform: translate(-50%, -75%);
 
 }
 
