@@ -2,12 +2,13 @@
 const togglePreLoader = style => {
     document.getElementById('pre-loader').style.display = style;
 }
+
 // toggle for search reslts
 const toggleSearchResults = showHide => {
     document.getElementById('search-results').style.display = showHide;
 }
 
-// data fetch
+// search data url fetch
 const searchBook = async () => {
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value;
@@ -39,8 +40,9 @@ const displaySearchResults = booksInfo => {
         div.innerHTML = `
             <img  src="https://covers.openlibrary.org/b/id/${bookInfo.cover_i ? bookInfo.cover_i : '240727'}-M.jpg" />
             <h3>${bookInfo.title}</h3>
-            <p>${bookInfo.author_name ? bookInfo.author_name : ''}</p>
-            <p>${bookInfo.first_publish_year ? bookInfo.first_publish_year : ''}</p>
+            <p><strong>Author:</strong> ${bookInfo.author_name ? bookInfo.author_name : ''}</p>
+            <p><strong>Publisher:</strong> ${bookInfo.publisher ? bookInfo.publisher : ''}</p>
+            <p><strong>First Publish</strong> ${bookInfo.first_publish_year ? bookInfo.first_publish_year : ''}</p>
             `;
         searchResults.appendChild(div);
 
