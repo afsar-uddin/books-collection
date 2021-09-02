@@ -133,17 +133,17 @@ header h1 span {
 
 .pre-load div:nth-child(2) {
     left: 8px;
-    animation: lds-ellipsis2 0.6s infinite;
+    animation: animate2 0.6s infinite;
 }
 
 .pre-load div:nth-child(3) {
     left: 32px;
-    animation: lds-ellipsis2 0.6s infinite;
+    animation: animate2 0.6s infinite;
 }
 
 .pre-load div:nth-child(4) {
     left: 56px;
-    animation: lds-ellipsis3 0.6s infinite;
+    animation: animate3 0.6s infinite;
 }
 
 @keyframes animate {
@@ -156,7 +156,7 @@ header h1 span {
     }
 }
 
-@keyframes lds-ellipsis3 {
+@keyframes animate3 {
     0% {
         transform: scale(1);
     }
@@ -166,7 +166,7 @@ header h1 span {
     }
 }
 
-@keyframes lds-ellipsis2 {
+@keyframes animate2 {
     0% {
         transform: translate(0, 0);
     }
@@ -175,13 +175,14 @@ header h1 span {
         transform: translate(24px, 0);
     }
 }
+
 /* Resonsive */
 @media screen and (max-width: 1000px) {
     #search-results {
         grid-template-columns: repeat( auto-fit, minmax(40%, 1fr) );
     }
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 768px) {
     header h1 {
         font-size: 18px;
     }
